@@ -13,8 +13,10 @@
 
 int main(void)
 {
-	const char msg[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-	const int len = sizeof(msg) - 1; /* exclude null terminator */
+	char msg[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+
+	int len = sizeof(msg) - 1; /* exclude null terminator */
+
 	write(STDERR_FILENO, msg, len);
 
 	return (1); /* return a non-zero value to indicate failure */
