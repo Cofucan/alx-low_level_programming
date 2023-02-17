@@ -5,8 +5,8 @@
  * main - Entry point
  *
  * This is a simple C code,
- * it prints out a text to stdout
- * using the printf function
+ * it prints all alphabets in lowercase,
+ * using the putchar function.
  *
  * Return: 0
 */
