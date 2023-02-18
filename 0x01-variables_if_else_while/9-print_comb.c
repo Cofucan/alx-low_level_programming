@@ -4,7 +4,7 @@
  * main - Entry point
  *
  * This is a simple C code,
- * it prints out all numbers from 0 - 9,
+ * it prints out all numbers from 0 - 9 seperated by a comma,
  * using the putchar function.
  *
  * It does this by adding each integer,
