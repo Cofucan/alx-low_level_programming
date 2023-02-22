@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <limits.h>
 
 /**
  * main - Entry point
@@ -13,17 +12,17 @@
 int main(void)
 {
 	int i;
-	long fib[100];
+	unsigned long int fib[100];
 
 	fib[0] = 1;
 	fib[1] = 2;
 
-	printf("%ld, %ld, ", fib[0], fib[1]);
+	printf("%lu, %lu, ", fib[0], fib[1]);
 
-	for (i = 2; i < 98 && fib[i] <= INT_MAX; i++)
+	for (i = 2; i < 98; i++)
 	{
 		fib[i] = fib[i - 1] + fib[i - 2];
-		printf("%ld", (long) fib[i]);
+		printf("%lu", (long) fib[i]);
 
 		if (i != 97)
 		{
