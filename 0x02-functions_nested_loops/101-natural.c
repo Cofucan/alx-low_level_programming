@@ -4,7 +4,6 @@
 /**
  * main - Entry point
  * sum_mul_of_3_and_5 - Function
- * @num: number to be processed
  *
  * Return: 0
 */
