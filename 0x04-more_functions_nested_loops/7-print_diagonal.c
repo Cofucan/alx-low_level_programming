@@ -24,7 +24,11 @@ void print_diagonal(int n)
 	for (u = 1; u <= n; u++)
 	{
 		for (v = 1; v <= u; v++)
+		{
+			if (v == 1)
+				continue;
 			_putchar(' ');
+		}
 		_putchar('\\');
 		_putchar('\n');
 	}
