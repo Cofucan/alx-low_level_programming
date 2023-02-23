@@ -3,7 +3,7 @@
 /**
  * more_numbers - Entry point
  *
- * This is a simple C code,
+ * This is a simple C program,
  * It prints 10 times the numbers,
  * from 0 - 14.
  *

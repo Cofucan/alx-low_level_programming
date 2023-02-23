@@ -4,7 +4,7 @@
  * _isupper - Entry point
  * @c: Character to be checked
  *
- * This is a simple C code,
+ * This is a simple C program,
  * it checks if a character is uppercase or not.
  *
  * Return: 0 or 1

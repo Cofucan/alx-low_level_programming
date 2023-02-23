@@ -6,7 +6,7 @@
  * @a: First number to be multiplied
  * @b: Second number to be multiplied
  *
- * This is a simple C code,
+ * This is a simple C program,
  * It returns the product of 2 numbers.
  *
  * Return: integer

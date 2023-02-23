@@ -3,7 +3,7 @@
 /**
  * print_most_numbers - Entry point
  *
- * This is a simple C code,
+ * This is a simple C program,
  * It prints all numbers from 0 - 9,
  * excluding 2 and 4.
  *

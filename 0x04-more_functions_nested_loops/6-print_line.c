@@ -4,7 +4,7 @@
  * print_line - Entry point
  * @n: Number of times to print the '_'
  *
- * This is a simple C code,
+ * This is a simple C program,
  * It prints the underscore sign '_'
  * a specified number of times
  *

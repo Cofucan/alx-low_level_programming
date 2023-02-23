@@ -4,7 +4,7 @@
  * _isdigit - Entry point
  * @c: Number to be checked
  *
- * This is a simple C code,
+ * This is a simple C program,
  * it checks if a number is a digit.
  *
  * Return: 0 or 1

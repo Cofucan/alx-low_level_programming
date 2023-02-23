@@ -4,7 +4,7 @@
  * print_diagonal - Entry point
  * @n: Number of times to print the '\'
  *
- * This is a simple C code,
+ * This is a simple C program,
  * It prints the backward slash sign '\'
  * a specified number of times
  *
