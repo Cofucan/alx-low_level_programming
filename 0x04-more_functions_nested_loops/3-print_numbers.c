@@ -6,7 +6,7 @@
  * This is a simple C code,
  * It prints all numbers from 0 - 9.
  *
- * Return: 0
+ * Return: nothing
 */
 
 void print_numbers(void)
