@@ -17,11 +17,12 @@ void print_number(int n)
 	int d;
 	int digits;
 
-	/**
-	 * If number is negative, print the minus sign,
-	 * then convert it to positive and store in another variable,
-	 * else just store the number in the other variable.
-	 */
+	if (n == 0)
+	{
+		_putchar('0');
+		return;
+	}
+
 	curr = _abs(n);
 
 	/* Get the number of digits in the integer */
