@@ -22,3 +22,10 @@ void print_square(int size);
 
 void print_triangle(int size);
 
+void print_number(int n);
+
+int power(int base, int exponent);
+
+int _abs(int);
+
+int count_digits(int);
