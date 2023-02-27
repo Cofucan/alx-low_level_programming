@@ -7,7 +7,7 @@
  * The is a C programm.
  * It changes the value at the address of
  * a pointer.
- * 
+ *
  * return: Nothing
  */
 
