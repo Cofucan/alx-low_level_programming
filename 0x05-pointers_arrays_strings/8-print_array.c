@@ -17,8 +17,10 @@ void print_array(int *a, int n)
 	int c;
 
 	if (n <= 0)
+	{
 		printf("\n");
 		return;
+	}
 
 	for (c = 0; c < (n - 1); c++)
 	{
