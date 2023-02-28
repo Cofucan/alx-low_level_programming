@@ -15,7 +15,7 @@
 void print_array(int *a, int n)
 {
 	int c;
-	
+
 	if (n <= 0)
 		return;
 
