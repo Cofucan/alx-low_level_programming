@@ -15,19 +15,20 @@ int _atoi(char *s)
 	int sign = 1;
 	int number = 0;
 
+	/* Handle signs */
 	while (!(*s >= '0' && *s <= '9'))
 	{
-		/* handle signs */
 		if (*s == '-')
 			sign *= -1;
 		s++;
 	}
 
+	/* Handle numbers*/
 	while (*s >= '0' && *s <= '9')
 	{
 		number = (number * 10) + (*s - '0');
 		s++;
 	}
 
-	return ((int) (sign * number));
+	return (sign * number);
 }
