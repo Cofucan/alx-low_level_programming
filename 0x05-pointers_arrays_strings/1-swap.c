@@ -8,7 +8,7 @@
  * This program swaps the values located
  * at two pointers
  *
- * return: Nothing
+ * Return: Nothing
  */
 
 void swap_int(int *a, int *b)

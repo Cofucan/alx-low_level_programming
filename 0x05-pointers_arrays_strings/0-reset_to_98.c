@@ -8,7 +8,7 @@
  * It changes the value at the address of
  * a pointer.
  *
- * return: Nothing
+ * Return: Nothing
  */
 
 void reset_to_98(int *n)

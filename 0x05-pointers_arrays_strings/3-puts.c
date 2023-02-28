@@ -7,7 +7,7 @@
  * This program prints the characters
  * of a string from a character pointer.
  *
- * return: Nothing
+ * Return: Nothing
  */
 
 void _puts(char *str)
