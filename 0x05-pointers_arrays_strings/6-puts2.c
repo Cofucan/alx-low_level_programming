@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _puts2 - Entry point
+ * puts2 - Entry point
  * @str: String to be printed.
  *
  * This program prints every other character
