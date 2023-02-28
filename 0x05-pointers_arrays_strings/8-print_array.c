@@ -14,6 +14,9 @@
 
 void print_array(int *a, int n)
 {
+	if (n <= 0)
+		return;
+
 	int c;
 
 	for (c = 0; c < (n - 1); c++)
