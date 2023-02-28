@@ -18,6 +18,7 @@ void print_array(int *a, int n)
 
 	if (n <= 0)
 		printf("\n");
+		return;
 
 	for (c = 0; c < (n - 1); c++)
 	{
