@@ -25,7 +25,6 @@ char *leet(char *str)
 			{
 				str[c] = leet_nums[u];
 			}
-			u++;
 		}
 		c++;
 	}
