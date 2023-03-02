@@ -12,7 +12,7 @@
 
 void print_number(int n)
 {
-	int n_copy, digit, power, len;
+	int n_copy, power, len;
 
 	power = 1;
 	len = 1;
@@ -31,12 +31,8 @@ void print_number(int n)
 		len++;
 	}
 
-	while (power >= 10)
+	for (; power >= 1; power /= 10)
 	{
-		digit = n_copy / power;
-		_putchar(digit + '0');
-		n_copy %= power;
-		power /= 10;
+		_putchar(((n_copy / power) % 10) + '0');
 	}
-	_putchar(n_copy + '0');
 }
