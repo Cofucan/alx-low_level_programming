@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * swap_int - Entry point
+ * reverse_array - Entry point
  * @a: Array to be reversed.
  * @n: Number of elements in array.
  *
@@ -14,6 +14,9 @@
 void reverse_array(int *a, int n)
 {
 	int u, tmp;
+
+	if (n == 0 || n == 1)
+		return;
 
 	for (u = 0; u < n / 2; u++)
 	{
