@@ -12,7 +12,7 @@
 
 void print_number(int n)
 {
-	int n_copy, power, len;
+	unsigned int n_copy, power, len;
 
 	power = 1;
 	len = 1;
