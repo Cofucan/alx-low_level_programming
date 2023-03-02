@@ -1,8 +1,7 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * swap_int - Entry point
+ * print_number - Entry point
  * @n: Number to be printed..
  *
  * This program prints an integer
