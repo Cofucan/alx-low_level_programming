@@ -12,20 +12,21 @@
 char *leet(char *str)
 {
 	int c = 0;
+	int u;
+	char leet_chars[] = "aAeEoOtTlL";
+	char leet_nums[] = "4433007711";
 
 	/* Capitalize the remaining words */
 	while (str[c] != '\0')
 	{
-		if (str[c] == 'a' || str[c] == 'A')
-			str[c] = 4 + '0';
-		else if (str[c] == 'e' || str[c] == 'E')
-			str[c] = 3 + '0';
-		else if (str[c] == 'o' || str[c] == 'O')
-			str[c] = 0 + '0';
-		else if (str[c] == 't' || str[c] == 'T')
-			str[c] = 7 + '0';
-		else if (str[c] == 'l' || str[c] == 'L')
-			str[c] = 1 + '0';
+		for (u = 0; u < 10; u++)
+		{
+			if (leet_chars[u] == str[c])
+			{
+				str[c] = leet_nums[u];
+			}
+			u++;
+		}
 		c++;
 	}
 	return (str);
