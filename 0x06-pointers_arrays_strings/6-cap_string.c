@@ -13,14 +13,20 @@ char *cap_string(char *str)
 {
 	int c = 0;
 
+	/* If string is empty, return empty string*/
 	if (str[0] == '\0')
 		return (str);
 
+	/* Capitalize the first word */
+	if (str[c] >= 'a' && str[c] <= 'z')
+		str[c] -= 32;
+
+	/* Capitalize the remaining words */
 	while (str[c] != '\0')
 	{
-		if (is_seperator(str[c]) && str[c + 1] >= 'a' && str[c + 1] <= 'z')
+		if (str[c] >= 'a' && str[c] <= 'z' && is_seperator(str[c - 1]))
 		{
-			str[c + 1] -= 32;
+			str[c] -= 32;
 		}
 		c++;
 	}
