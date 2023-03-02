@@ -7,7 +7,7 @@
  *
  * This program joins two strings.
  *
- * Return: Nothing
+ * Return: Concatenated string.
  */
 
 char *_strcat(char *dest, char *src)
