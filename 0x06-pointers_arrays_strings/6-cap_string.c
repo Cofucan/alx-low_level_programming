@@ -18,9 +18,9 @@ char *cap_string(char *str)
 
 	while (str[c] != '\0')
 	{
-		if (str[c] >= 'a' && str[c] <= 'z' && is_seperator(str[c - 1]))
+		if (is_seperator(str[c]) && str[c + 1] >= 'a' && str[c + 1] <= 'z')
 		{
-			str[c] -= 32;
+			str[c + 1] -= 32;
 		}
 		c++;
 	}
