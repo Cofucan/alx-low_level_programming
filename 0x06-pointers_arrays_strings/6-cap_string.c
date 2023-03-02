@@ -13,6 +13,9 @@ char *cap_string(char *str)
 {
 	int c = 0;
 
+	if (str[0] == '\0')
+		return (str);
+
 	while (str[c] != '\0')
 	{
 		if (str[c] >= 'a' && str[c] <= 'z' && is_seperator(str[c - 1]))
