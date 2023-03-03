@@ -1,98 +1,80 @@
 #include "main.h"
 
 /**
- * infinite_add - Entry point
- * @n1: First number to be added.
- * @n2: Second number to be added.
- * @r: buffer that will store result
- * @r_size: size of buffer
- *
- * This program adds two numbers.
- *
- * Return: Pointer to result buffer.
+ * infinite_add - add 2 numbers together
+ * @n1: text representation of 1st number to add
+ * @n2: text representation of 2nd number to add
+ * @r: pointer to buffer
+ * @size_r: buffer size
+ * Return: pointer to calling function
  */
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int n1_len = arr_len(n1);
-	int n2_len = arr_len(n2);
-	int longest;
-	int sum, remainder;
-	int carry = 0;
-	int c; /* Counter for each digit added from the largest number */
-	int d = 0; /* Counter for each digit added to the sum_reversed*/
-	int e = 0; /* Counter for copying the reverseed sum digits to the r buffer */
-	int reversed_len;
+	int carry = 0, i = 0, j = 0, digits = 0;
+	int num1 = 0, num2 = 0, temp_sum = 0;
 
-	if (n1_len > n2_len)
-		longest = n1_len;
-	else if (n2_len > n1_len)
-		longest = n2_len;
-	else
-		longest = n1_len;
-
-	char sum_reversed[longest + 3];
-
-	for (c = longest - 1; c >= 0; c--)
-	{
-		if (n1_len == 0)
-		{
-			*(sum_reversed + d) = *(n2 + n2_len - 1);
-			n2_len--;
-			d++;
-			continue;
-		}
-		else if (n2_len == 0)
-		{
-			*(sum_reversed + d) = *(n1 + n1_len - 1);
-			n1_len--;
-			d++;
-			continue;
-		}
-
-		sum = (*(n2 + n2_len - 1) - '0') + (*(n1 + n1_len - 1) - '0');
-		sum += carry;
-		carry = 0;
-
-		if (sum >= 10)
-		{
-			remainder = sum - 10;
-			carry = 1;
-		}
-		else remainder = sum;
-
-		*(sum_reversed + d) = remainder;
-
-		n1_len--;
-		n2_len--;
-		d++;
-	}
-
-	if (carry == 1)
-		*(sum_reversed + d) = carry - '0';
-	d++;
-	*(sum_reversed + d) = '\0';
-
-	reversed_len = arr_len(sum_reversed);
-
-	if (reversed_len >= size_r)
+	while (*(n1 + i) != '\0')
+		i++;
+	while (*(n2 + j) != '\0')
+		j++;
+	i--;
+	j--;
+	if (j >= size_r || i >= size_r)
 		return (0);
-
-	for (; reversed_len > 0; reversed_len--)
+	while (j >= 0 || i >= 0 || carry == 1)
 	{
-		*(r + e) = *(sum_reversed + (reversed_len - 1));
-		e++;
+		if (i < 0)
+			num1 = 0;
+		else
+			num1 = *(n1 + i) - '0';
+		if (j < 0)
+			num2 = 0;
+		else
+			num2 = *(n2 + j) - '0';
+		temp_sum = num1 + num2 + carry;
+		if (temp_sum >= 10)
+			carry = 1;
+		else
+			carry = 0;
+
+		if (digits >= (size_r - 1))
+			return (0);
+		*(r + digits) = (temp_sum % 10) + '0';
+		digits++;
+		j--;
+		i--;
 	}
-	*(r + e) = '\0';
+	if (digits == size_r)
+		return (0);
+	*(r + digits) = '\0';
+	rev_array(r);
 	return (r);
 }
 
-int arr_len(char *str)
-{
-	int c = 0;
 
-	while (str[c] != '\0')
-		c++;
-	
-	return (c);
+/**
+ * rev_array - reverse array
+ * @n: integer params
+ * Return: 0
+ */
+
+void rev_array(char *n)
+{
+	int i = 0;
+	int j = 0;
+	char temp;
+
+	while (*(n + i) != '\0')
+	{
+		i++;
+	}
+	i--;
+
+	for (j = 0; j < i; j++, i--)
+	{
+		temp = *(n + j);
+		*(n + j) = *(n + i);
+		*(n + i) = temp;
+	}
 }
