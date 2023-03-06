@@ -20,5 +20,9 @@ char *_strchr(char *s, char c)
 			return (&s[u]);
 	}
 
+	/* If c is the null terminator, return address of the null */
+	if (s[u] == c)
+		return (&s[u]);
+
 	return (NULL);
 }
