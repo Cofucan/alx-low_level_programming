@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strbrk - Entry point
+ * _strpbrk - Entry point
  * @s: String to search.
  * @accept: Bytes to look for.
  *
@@ -13,28 +13,16 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	int c, d;
-	int first = 0;
-	int found = 0;
+	int i;
 
-	for (c = 0; accept[c] != '\0'; c++)
+	while (*s)
 	{
-		for (d = 0; s[d] != '\0'; d++)
+		for (i = 0; accept[i]; i++)
 		{
-			if (s[d] == accept[c])
-			{
-				if (d < first)
-				{
-					first = d;
-				}
-				found = 1;
-				break;
-			}
+			if (*s == accept[i])
+				return (s);
 		}
+		s++;
 	}
-
-	if (found == 1)
-		return (&s[first]);
-
 	return (NULL);
 }
