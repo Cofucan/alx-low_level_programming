@@ -22,7 +22,8 @@ unsigned int _strspn(char *s, char *accept)
 		{
 			if (accept[c] == s[d])
 			{
-				if (d > x) x = d;
+				if (d > x)
+					x = d;
 				found = 1;
 
 				/**
@@ -40,8 +41,7 @@ unsigned int _strspn(char *s, char *accept)
 		 */
 		if (found == 0)
 			return (0);
-		else
-			found = 0;
+		found = 0;
 	}
 
 	return (x + 1);
