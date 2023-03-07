@@ -13,7 +13,7 @@ void print_chessboard(char (*a)[8])
 {
 	int u, v;
 
-	for (u = 0; *a[u]; u++)
+	for (u = 0; u < 8; u++)
 	{
 		for (v = 0; v < 8; v++)
 		{
