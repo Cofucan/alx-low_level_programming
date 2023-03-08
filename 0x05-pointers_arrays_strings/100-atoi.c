@@ -1,33 +1,41 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * _atoi - converts a string to an integer.
- * @s: the string to convert
- * Return: the coverted string / 0 is Success.
+ * _atoi - Entry point
+ * @s: String to be converted.
+ *
+ * This program converts a string to an integer,
+ * similar to the atio() function.
+ *
+ * Return: Integer
  */
+
 int _atoi(char *s)
 {
-	short check;
-	int i, sign, number;
+	int sign = 1;
+	int number = 0;
 
-	i = sign = number = check = 0;
-	sign = -1;
+	/* Handle empty string */
+	if (*(s) == '\0')
+		return (0);
 
-	while (s[i] != '\0')
+	/* Handle signs */
+	while (!(*s >= '0' && *s <= '9'))
 	{
-		if (s[i] == '-')
+		if (*s == '-')
 			sign *= -1;
-
-		if (s[i] >= '0' && s[i] <= '9')
-		{
-			number *= 10;
-			number -= (s[i] - '0');
-			check = 1;
-		}
-		else if (check == 1)
-			break;
-		i++;
+		s++;
 	}
-	number *= sign;
 
-	return (number);
+	/* Handle numbers*/
+	while (*s >= '0' && *s <= '9')
+	{
+		number = (number * 10) + (*s - '0');
+		s++;
+	}
+
+
+
+	return (sign * number);
 }
