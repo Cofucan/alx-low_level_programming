@@ -4,7 +4,7 @@
  * _strlen_recursion - Entry point.
  * @s: String to count length of.
  *
- * This function return a string,
+ * This function return the length of a string,
  * using recursion.
  *
  * Return: Length of string (integer).

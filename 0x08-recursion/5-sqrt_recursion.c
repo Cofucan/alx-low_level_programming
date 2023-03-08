@@ -4,7 +4,7 @@ int _sqrt(int n, int y);
 
 /**
  * _sqrt_recursion - Entry point.
- * @n: Number to fund square root of.
+ * @n: Number to find square root of.
  *
  * This function finds the natural square root,
  * of a number using recursion.
