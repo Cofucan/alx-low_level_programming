@@ -54,6 +54,9 @@ int main(int argc, char **argv)
 
 bool is_num(char *num)
 {
+	if (*num == '-')
+		num++;
+
 	while (*num)
 	{
 		if (!isdigit(*num))
