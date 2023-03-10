@@ -29,11 +29,17 @@ int main(int argc, char **argv)
 
 	while (argv[u])
 	{
-		if (!is_num(argv[u]))
+		if (!is_num(argv[u])) /* If string contains non-digits */
 		{
 			printf("Error\n");
 			return (1);
 		}
+		else if (atoi(argv[u]) < 0) /* If number is negative then skip */
+		{
+			u++;
+			continue;
+		}
+
 		sum += atoi(argv[u]);
 		u++;
 	}
