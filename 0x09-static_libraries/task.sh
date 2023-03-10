@@ -1,0 +1,19 @@
+#!/bin/bash
+
+cd ..
+
+folders=( "0x00-hello_world" "0x01-variables_if_else_while" "0x02-functions_nested_loops" "0x03-debugging" "0x04-more_functions_nested_loops" "0x05-pointers_arrays_strings" "0x06-pointers_arrays_strings" "0x07-pointers_arrays_strings" "0x08-recursion")
+
+files=("0-isupper.c" "0-memset.c" "0-strcat.c" "1-isdigit.c" "1-memcpy.c" "1-strncat.c" "100-atoi.c" "2-strchr.c" "2-strlen.c" "2-strncpy.c" "3-islower.c" "3-puts.c" "3-strcmp.c" "3-strspn.c" "4-isalpha.c" "4-strpbrk.c" "5-strstr.c" "6-abs.c" "9-strcpy.c")
+
+for f in ${folders[@]};
+do
+	cd ${f}
+	for s in ${files[@]};
+	do
+		if [ -e ./${s} ]; then
+			cp ${s} ../0x09-static_libraries/
+		fi
+	done
+	cd ..
+done
