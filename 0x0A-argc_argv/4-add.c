@@ -26,6 +26,8 @@ int main(int argc, char **argv)
 		printf("0\n");
 		return (1);
 	}
+	else if (argc < 1)
+		return (0);
 
 	while (argv[u])
 	{
@@ -60,7 +62,7 @@ int main(int argc, char **argv)
 
 bool is_num(char *num)
 {
-	if (*num == '-')
+	if (*num == '-') /* If string starts with a minus sign, go on to next char */
 		num++;
 
 	while (*num)
