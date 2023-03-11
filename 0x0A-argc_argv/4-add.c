@@ -26,8 +26,6 @@ int main(int argc, char **argv)
 		printf("0\n");
 		return (1);
 	}
-	else if (argc < 1)
-		return (0);
 
 	while (argv[u])
 	{
@@ -36,7 +34,7 @@ int main(int argc, char **argv)
 			printf("Error\n");
 			return (1);
 		}
-		else if (atoi(argv[u]) < 0) /* If number is negative then skip */
+		else if (atoi(argv[u]) <= 0) /* If number is negative then skip */
 		{
 			u++;
 			continue;
