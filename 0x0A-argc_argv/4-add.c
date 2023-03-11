@@ -1,22 +1,25 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <ctype.h>
-#include <stdbool.h>
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <ctype.h>
 
 bool is_num(char *num);
 
 /**
-* main - add positive numbers
-* @argc: arguement count
-* @argv: arguement vectors
-*
-* Return: Always 0 (succes)
-*/
+ * main - Entry point
+ * @argc: Number of arguments passed
+ * @argv: Vector containing arguments passed as strings
+ *
+ * Adds all positive numbers passed as arguments.
+ *
+ * Return: On success 0, or 1 if invalid or no number is passed in.
+ */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int i, sum = 0;
+	int u = 1;
+	int sum = 0;
 
 	if (argc == 1)
 	{
@@ -24,14 +27,21 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	for (i = 1; i < argc; i++)
+	while (argv[u])
 	{
-		if (!is_num(argv[i]))
+		if (!is_num(argv[u])) /* If string contains non-digits */
 		{
-			printf("%s\n", "Error");
+			printf("Error\n");
 			return (1);
 		}
-		sum += atoi(argv[i]);
+		else if (atoi(argv[u]) <= 0) /* If number is negative then skip */
+		{
+			u++;
+			continue;
+		}
+
+		sum += atoi(argv[u]);
+		u++;
 	}
 
 	printf("%d\n", sum);
