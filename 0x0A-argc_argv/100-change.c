@@ -17,7 +17,7 @@ int calculate_coins(int change);
 int main(int argc, char **argv)
 {
 	/* Declare an integer to store the input number. */
-	int num = atoi(argv[1]);
+	int num;
 	/* Declare an integer to store the total number of coins. */
 	int coins;
 
@@ -27,8 +27,11 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		return (1);
 	}
+
+	num = atoi(argv[1]);
+
 	/* Check that the input number is non-negative. */
-	else if (num < 0)
+	if (num < 0)
 	{
 		printf("0\n");
 		return (0);
