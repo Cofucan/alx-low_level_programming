@@ -1,73 +1,38 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
+#include <stdio.h>
 #include <ctype.h>
-
-bool is_num(char *num);
+#include "main.h"
 
 /**
- * main - Entry point
- * @argc: Number of arguments passed
- * @argv: Vector containing arguments passed as strings
- *
- * Adds all positive numbers passed as arguments.
- *
- * Return: On success 0, or 1 if invalid or no number is passed in.
- */
+* main - add positive numbers
+* @argc: arguement count
+* @argv: arguement vectors
+*
+* Return: Always 0 (succes)
+*/
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int u = 1;
-	int sum = 0;
+	int i, sum = 0;
 
-	if (argc == 1)
+	if (argc < 1)
 	{
-		printf("0\n");
-		return (1);
+		return (0);
 	}
-
-	while (argv[u])
+	else
 	{
-		if (!is_num(argv[u])) /* If string contains non-digits */
+		for (i = 1; i < argc; i++)
 		{
-			printf("Error\n");
-			return (1);
-		}
-		else if (atoi(argv[u]) <= 0) /* If number is negative then skip */
-		{
-			u++;
-			continue;
+			if (isalpha(*argv[i]) != 0)
+			{
+				printf("%s\n", "Error");
+				return (1);
+			}
+			sum += atoi(argv[i]);
 		}
 
-		sum += atoi(argv[u]);
-		u++;
+		printf("%d\n", sum);
 	}
-
-	printf("%d\n", sum);
 
 	exit(EXIT_SUCCESS);
-}
-
-/**
- * is_num - Function
- * @num: String to check if its a number
- *
- * Checks if a string contains only digits.
- *
- * Return: true or false.
- */
-
-bool is_num(char *num)
-{
-	if (*num == '-') /* If string starts with a minus sign, go on to next char */
-		num++;
-
-	while (*num)
-	{
-		if (!isdigit(*num))
-			return (false);
-		num++;
-	}
-	return (true);
 }
