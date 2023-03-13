@@ -13,17 +13,17 @@
 char *create_array(unsigned int size, char c)
 {
 	unsigned int u;
-	char* arr;
+	char *arr;
 
 	/* If size is zero */
 	if (!size)
-		return NULL;
+		return (NULL);
 
 	arr = malloc(sizeof(char) * size);
 
 	/* If allocation fails */
 	if (!arr)
-		return NULL;
+		return (NULL);
 
 	/* Replace all characters, including the null terminator */
 	for (u = 0; u < size; u++)
