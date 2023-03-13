@@ -15,8 +15,8 @@ char *_strdup(char *str)
 	int len;
 	char *new_str;
 
-	/* If string is null */
-	if (!str)
+	/* If string is empty */
+	if (str == NULL)
 		return (NULL);
 
 	/* Count length of string */
