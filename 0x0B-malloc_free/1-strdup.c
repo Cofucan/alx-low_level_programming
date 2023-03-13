@@ -16,7 +16,10 @@ char *_strdup(char *str)
 	char *new_str;
 
 	/* If string is empty */
-	if (*str == '\0')
+	if (str == NULL)
+		return (NULL);
+
+	if (str[0] == '\0')
 		return (NULL);
 
 	/* Count length of string */
