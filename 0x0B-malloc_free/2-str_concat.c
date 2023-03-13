@@ -37,7 +37,7 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 
 	/* Copy characters from first string */
-	for (c = 0, u = 0; c < len1; c++, u++)
+	for (c = 0, u = 0; s1[c]; c++, u++)
 		joined[u] = s1[c];
 
 	/*
@@ -46,7 +46,7 @@ char *str_concat(char *s1, char *s2)
 	 * continue from its last index after the first string
 	 * was copied.
 	 */
-	for (c = 0; c < len2; c++, u++)
+	for (c = 0; s2[c]; c++, u++)
 		joined[u] = s2[c];
 
 	return (joined);
