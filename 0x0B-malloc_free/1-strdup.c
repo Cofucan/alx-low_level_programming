@@ -15,7 +15,7 @@ char *_strdup(char *str)
 	int len;
 	char *new_str;
 
-	/* If char array is null */
+	/* If array to be copied is null */
 	if (str == NULL)
 		return (NULL);
 
@@ -26,7 +26,7 @@ char *_strdup(char *str)
 	if (str[0] == '\0')
 		len = 1;
 
-	/* Allocate memory for new copy */
+	/* Allocate memory for new copy, including null terminaror */
 	new_str = malloc((sizeof(char) * len) + 1);
 
 	/* If allocation fails */
