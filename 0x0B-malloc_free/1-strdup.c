@@ -15,16 +15,21 @@ char *_strdup(char *str)
 	int len;
 	char *new_str;
 
+	/* If string is null */
 	if (!str)
 		return (NULL);
 
+	/* Count length of string */
 	for (len = 0; *(str + len); len++)
 
+	/* Allocate memory for new copy */
 	new_str = malloc(sizeof(char) * len);
 
+	/* If allocation fails */
 	if (!new_str)
 		return (NULL);
 
+	/* Copy characters to new array */
 	for (u = 0; u < len; u++)
 		new_str[u] = str[u];
 
