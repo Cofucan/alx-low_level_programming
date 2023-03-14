@@ -20,7 +20,7 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 
 	/* Allocate space for the number of rows(height) */
-	grid = (int **)malloc((sizeof(int) * height) + 1);
+	grid = malloc(sizeof(int *) * height);
 
 	/* If malloc fails */
 	if (!grid)
@@ -28,11 +28,18 @@ int **alloc_grid(int width, int height)
 
 	/* Allocate space for each of the inner arrays */
 	for (u = 0; u < height; u++)
-		grid[u] = (int *)malloc((sizeof(int) * width) + 1);
+	{
+		grid[u] = malloc(sizeof(int) * width);
 
-	/* If malloc fails again */
-	if (!grid)
-		return (NULL);
+		/* If malloc fails again, free any previously allocared memory */
+		if (!grid[u])
+		{
+			for (u--; u >= 0; u--)
+				free(grid[u]);
+			free(grid);
+			return (NULL);
+		}
+	}
 
 	/* Initialize every element with zero */
 	for (u = 0; u < height; u++)
