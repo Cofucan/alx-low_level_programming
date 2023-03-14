@@ -30,7 +30,7 @@ char *argstostr(int ac, char **av)
 	 * Allocate memory for new string that contains all arguments,
 	 * including space for newline character after each argument.
 	 */
-	new_string = malloc((sizeof(char) * size) + new_lines + 1);
+	new_string = malloc((sizeof(char) * size) + new_lines);
 
 	/* If malloc fails */
 	if (!new_string)
