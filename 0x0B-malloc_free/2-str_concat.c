@@ -13,21 +13,22 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	int c, u;
+	int c, u = 0;
 	int len1, len2;
 	char *joined;
 
-	/* Count length of string 1 */
-	for (len1 = 0; s1[len1]; len1++)
-
-	/* Count length of string 2 */
-	for (len2 = 0; s2[len2]; len2++)
-
 	/* If string is empty or NULL, length of array should be 1 */
-	if (s1[0] == '\0' || s1 == NULL)
+	if (s1 == NULL || s1[0] == '\0')
 		len1 = 1;
-	if (s2[0] == '\0' || s2 == NULL)
+	else
+		for (len1 = 0; s1[len1]; len1++) /* Count length of string 1 */
+			continue;
+
+	if (s2 == NULL || s2[0] == '\0')
 		len2 = 1;
+	else
+		for (len2 = 0; s2[len2]; len2++) /* Count length of string 2 */
+			continue;
 
 	/* Allocate memory for new array, including null terminaror */
 	joined = malloc((sizeof(char) * (len1 + len2)) + 1);
@@ -37,8 +38,11 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 
 	/* Copy characters from first string */
-	for (c = 0, u = 0; s1[c]; c++, u++)
-		joined[u] = s1[c];
+	if (s1 != NULL)
+	{
+		for (c = 0; s1[c]; c++, u++)
+			joined[u] = s1[c];
+	}
 
 	/*
 	 * Copy characters from second string.
@@ -46,8 +50,11 @@ char *str_concat(char *s1, char *s2)
 	 * continue from its last index after the first string
 	 * was copied.
 	 */
-	for (c = 0; s2[c]; c++, u++)
-		joined[u] = s2[c];
+	if (s2 != NULL)
+	{
+		for (c = 0; s2[c]; c++, u++)
+			joined[u] = s2[c];
+	}
 
 	return (joined);
 }
