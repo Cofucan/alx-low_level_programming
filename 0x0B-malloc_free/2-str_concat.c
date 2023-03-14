@@ -44,12 +44,7 @@ char *str_concat(char *s1, char *s2)
 			joined[u] = s1[c];
 	}
 
-	/*
-	 * Copy characters from second string.
-	 * We are not reinitializing u because it needs to
-	 * continue from its last index after the first string
-	 * was copied.
-	 */
+	/* Copy characters from second string. */
 	if (s2 != NULL)
 	{
 		for (c = 0; s2[c]; c++, u++)
