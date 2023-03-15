@@ -63,6 +63,8 @@ char **strtow(char *str)
 		c++;
 	}
 
+	vec[u] = NULL;
+
 	return (vec);
 }
 
