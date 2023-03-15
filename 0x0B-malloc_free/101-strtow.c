@@ -22,8 +22,10 @@ char **strtow(char *str)
 
 	if (!str)
 		return (NULL);
-
 	word_count = count_words(str);
+
+	if (!word_count) /* If there are only spaces */
+		return (NULL);
 	vec = malloc((sizeof(char *) * word_count) + 1);
 
 	if (!vec)
@@ -82,11 +84,9 @@ int count_words(char *str)
 
 	for (x = 1; str[x]; x++)
 	{
-		if (str[x] == ' ' && str[x - 1] != ' ')
+		if ((str[x] == ' ' || !str[x]) && str[x - 1] != ' ')
 			count += 1;
 	}
 
-	if (str[x - 1] == ' ')
-		return (count);
-	return (count + 1);
+	return (count);
 }
