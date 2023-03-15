@@ -1,92 +1,97 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
-int count_words(char *str);
+void util(char **, char *);
+void create_word(char **, char *, int, int, int);
 
 /**
- * strtow - splits string into words
- * @str: string to be split
+ * strtow - splits a string into words.
+ * @str: the string
  *
- * Return: Pointer to vector containing each word.
+ * Return: returns a pointer to an array of strings (words)
  */
-
 char **strtow(char *str)
 {
-	int u = 0;
-	int v = 0;
-	int c = 0;
-	int word_count;
-	int word_len;
-	char **vec;
+	int i, flag, len;
+	char **words;
 
-	if (!str)
-		return (NULL);
-	word_count = count_words(str);
-
-	if (!word_count) /* If there are only spaces */
-		return (NULL);
-	vec = malloc((sizeof(char *) * word_count) + 1);
-
-	if (!vec)
+	if (str == NULL || str[0] == '\0' || (str[0] == ' ' && str[1] == '\0'))
 		return (NULL);
 
-	for (u = 0, c = 1; u < word_count; c++, u++, word_len = 0)
+	i = flag = len = 0;
+	while (str[i])
 	{
-		/* for (word_len = 0; (str[c] != ' ') || !str[c]; word_len++) */
-		while (!(str[c] == ' ' && str[c - 1] != ' ') || !str[c])
+		if (flag == 0 && str[i] != ' ')
+			flag = 1;
+		if (i > 0 && str[i] == ' ' && str[i - 1] != ' ')
 		{
-			if (str[c] != ' ')
-				word_len++;
-			c++;
+			flag = 0;
+			len++;
 		}
-
-		vec[u] = malloc((sizeof(char) * word_len) + 1);
-		if (!vec[u])
-		{
-			for (u--; u >= 0; u--)
-				free(vec[u]);
-			free(vec);
-			return (NULL);
-		}
-
+		i++;
 	}
 
-	for (u = 0, c = 1; u < word_count; u++)
-	{
-		v = 0;
-		for (; !(str[c] == ' ' && str[c - 1] != ' ') || !str[c]; c++)
-			if (str[c] != ' ')
-			{
-				vec[u][v] = str[c];
-				v++;
-			}
-		vec[u][v] = '\0';
-		c++;
-	}
+	len += flag == 1 ? 1 : 0;
+	if (len == 0)
+		return (NULL);
 
-	vec[u] = NULL;
+	words = (char **)malloc(sizeof(char *) * (len + 1));
+	if (words == NULL)
+		return (NULL);
 
-	return (vec);
+	util(words, str);
+	words[len] = NULL;
+	return (words);
 }
 
 /**
- * count_words - counts number of words in a string
- * @str: string to be counted
- *
- * Return: Integer.
+ * util - a util function for fetching words into an array
+ * @words: the strings array
+ * @str: the string
  */
-
-int count_words(char *str)
+void util(char **words, char *str)
 {
-	int x;
-	int count = 0;
+	int i, j, start, flag;
 
-	for (x = 1; str[x]; x++)
+	i = j = flag = 0;
+	while (str[i])
 	{
-		if ((str[x] == ' ' || !str[x]) && str[x - 1] != ' ')
-			count += 1;
+		if (flag == 0 && str[i] != ' ')
+		{
+			start = i;
+			flag = 1;
+		}
+
+		if (i > 0 && str[i] == ' ' && str[i - 1] != ' ')
+		{
+			create_word(words, str, start, i, j);
+			j++;
+			flag = 0;
+		}
+
+		i++;
 	}
 
-	return (count);
+	if (flag == 1)
+		create_word(words, str, start, i, j);
+}
+
+/**
+ * create_word - creates a word and insert it into the array
+ * @words: the array of strings
+ * @str: the string
+ * @start: the starting index of the word
+ * @end: the stopping index of the word
+ * @index: the index of the array to insert the word
+ */
+void create_word(char **words, char *str, int start, int end, int index)
+{
+	int i, j;
+
+	i = end - start;
+	words[index] = (char *)malloc(sizeof(char) * (i + 1));
+
+	for (j = 0; start < end; start++, j++)
+		words[index][j] = str[start];
+	words[index][j] = '\0';
 }
