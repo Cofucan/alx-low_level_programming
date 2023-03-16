@@ -31,9 +31,9 @@ char **strtow(char *str)
 	if (!vec)
 		return (NULL);
 
-	for (u = 0, c = 0; u < word_count; c++, u++, word_len = 0)
+	for (u = 0, c = 0; u < word_count; c++, u++, word_len = 1)
 	{
-		while (!(str[c] == ' ' && str[c - 1] > ' ') || !str[c])
+		while (!(str[c] != ' ' && str[c + 1] <= ' '))
 		{
 			if (str[c] != ' ')
 				word_len++;
@@ -54,12 +54,17 @@ char **strtow(char *str)
 	for (u = 0, c = 0; u < word_count; u++)
 	{
 		v = 0;
-		for (; !(str[c] == ' ' && str[c - 1] > ' ') || !str[c]; c++)
+		while (!(str[c] != ' ' && str[c + 1] <= ' '))
+		{
 			if (str[c] != ' ')
 			{
 				vec[u][v] = str[c];
 				v++;
 			}
+			c++;
+		}
+		vec[u][v] = str[c];
+		v++;
 		vec[u][v] = '\0';
 		c++;
 	}
@@ -81,14 +86,11 @@ int count_words(char *str)
 	int x;
 	int count = 0;
 
-	for (x = 1; str[x]; x++)
+	for (x = 0; str[x]; x++)
 	{
-		if (str[x] == ' ' && str[x - 1] != ' ')
+		if (str[x] != ' ' && str[x + 1] <= ' ')
 			count += 1;
 	}
-
-	if (!str[x] && str[x - 1] != ' ')
-		count += 1;
 
 	return (count);
 }
