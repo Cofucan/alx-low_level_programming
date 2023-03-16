@@ -17,7 +17,11 @@ char *str_concat(char *s1, char *s2)
 	int len1, len2;
 	char *joined;
 
-	/* If string is empty or NULL, length of array should be 1 */
+	/*
+	 * If string is NULL or empty, length of array should be 1.
+	 * We must first check for null before any other check,
+	 * else we would get segmetation error if string happens to be null
+	 */
 	if (s1 == NULL || s1[0] == '\0')
 		len1 = 1;
 	else
