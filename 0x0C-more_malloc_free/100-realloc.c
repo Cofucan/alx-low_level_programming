@@ -49,7 +49,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	for (u = 0; u < old_size; u++)
 		cast_real[u] = cast_ptr[u];
 
-	/* We can not free the old address as we have copied over the elements */
+	/* We can now free the old address as we have copied over the elements */
 	free(ptr);
 
 	return (real);
