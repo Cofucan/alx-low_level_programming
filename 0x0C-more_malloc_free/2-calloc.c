@@ -8,7 +8,6 @@
  * @size: byte size of each array element
  *
  * Return: Pointer to newly allocated memory.
-
  */
 
 void *_calloc(unsigned int nmemb, unsigned int size)
