@@ -26,13 +26,34 @@ void print_tab(char **tab)
 int main(void)
 {
     char **tab;
+	char **tab_a;
+	char **tab_b;
 
-    tab = strtow("      ALX School         #cisfun      ");
+	printf(">>>>>>>>>>>>>>>>>>>\n");
+	tab = strtow("      ALX School         #cisfun      ");
     if (tab == NULL)
     {
         printf("Failed\n");
         return (1);
     }
     print_tab(tab);
+
+	printf(">>>>>>>>>>>>>>>>>>>\n");
+    tab_a = strtow(" Talk is cheap. Show me the code. ");
+    if (tab_a == NULL)
+    {
+        printf("Failed\n");
+        return (1);
+    }
+    print_tab(tab_a);
+
+	printf(">>>>>>>>>>>>>>>>>>>\n");
+    tab_b = strtow("Talk is cheap. Show me the code.");
+    if (tab_b == NULL)
+    {
+        printf("Failed\n");
+        return (1);
+    }
+    print_tab(tab_b);
     return (0);
 }
