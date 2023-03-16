@@ -14,12 +14,8 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int c;
-	unsigned int u = 0;
-	unsigned int len1, len2;
-	unsigned int bytes_to_copy;
+	unsigned int u = 0, c, len1, len2, bytes_to_copy;
 	char *mem;
-
 	/*
 	 * If string is NULL or empty, length of array should be 1.
 	 * We must first check for null before any other check,
@@ -29,16 +25,18 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		len1 = 1;
 	else
 		for (len1 = 0; s1[len1]; len1++) /* Count length of string 1 */
+			continue;
 
 	if (s2 == NULL || s2[0] == '\0')
 		len2 = 1;
 	else
 		for (len2 = 0; s2[len2]; len2++) /* Count length of string 2 */
+			continue;
 
 	bytes_to_copy = n > len2 ? len2 : n;
 
 	/* Allocate mem. If n > length of s2, allocate space for the whole s2 */
-	mem = malloc(sizeof(char) * (len1 + bytes_to_copy + 1));
+	mem = malloc((sizeof(char) * (len1 + bytes_to_copy)) + 1);
 	if (mem == NULL)
 		return (NULL);
 
@@ -52,7 +50,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		for (c = 0; c < bytes_to_copy; c++, u++)
 			mem[u] = s2[c];
 	}
-
 	/* Terminate new array with null */
 	mem[u] = '\0';
 
