@@ -35,6 +35,13 @@ int main(int argc, char *argv[])
 	len1 = _strlen(num1);
 	len2 = _strlen(num2);
 
+	if ((len1 == 1 && *num1 == '0') || (len2 == 1 && *num2 == '0'))
+	{
+		_putchar('0');
+		_putchar('\n');
+		return (0);
+	}
+
 	/* Allocate memory for the result array */
 	result = (char *)malloc(len1 + len2 + 1);
 	if (result == NULL)
