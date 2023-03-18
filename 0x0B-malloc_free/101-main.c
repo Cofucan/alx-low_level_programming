@@ -37,6 +37,7 @@ int main(void)
         return (1);
     }
     print_tab(tab);
+	free(tab);
 
 	printf(">>>>>>>>>>>>>>>>>>>\n");
     tab_a = strtow(" Talk is cheap. Show me the code. ");
@@ -46,6 +47,7 @@ int main(void)
         return (1);
     }
     print_tab(tab_a);
+	free(tab_a);
 
 	printf(">>>>>>>>>>>>>>>>>>>\n");
     tab_b = strtow("Talk is cheap. Show me the code.");
@@ -55,5 +57,6 @@ int main(void)
         return (1);
     }
     print_tab(tab_b);
+	free(tab_b);
     return (0);
 }
