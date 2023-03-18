@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 	}
 
 	/* Allocate memory for the result array */
-	result = (char *)malloc(len1 + len2 + 1);
+	result = malloc((sizeof(char) * (len1 + len2)) + 1);
 	if (result == NULL)
 	{
 		for (c = 0; err[c]; c++)
@@ -169,4 +169,3 @@ void _print(char *arr)
 	}
 	_putchar('\n');
 }
-
