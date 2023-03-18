@@ -1,9 +1,10 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 void multiply(char *num1, int len1, char *num2, int len2, char *arr);
-int only_digits(char *num);
+bool only_digits(char *num);
 int _strlen(char *str);
 void _memset(char *arr, int size);
 void _print(char *arr);
@@ -36,8 +37,8 @@ int main(int argc, char *argv[])
 	len1 = _strlen(num1);
 	len2 = _strlen(num2);
 
-	/* If either argument is 0, print 0 */
-	if ((len1 == 1 && *num1 == '0') || (len2 == 1 && *num2 == '0'))
+	/* If either argument is 0 or an empty string, print 0 */
+	if (!len1 || !len2)
 	{
 		_putchar('0');
 		_putchar('\n');
@@ -101,17 +102,18 @@ void multiply(char *num1, int len1, char *num2, int len2, char *arr)
  * only_digits - Checks to see if a string contains only numeric characters
  * @num: Array to check
  *
- * Return: 1 or 0
+ * Return: true if it contains only digits else false.
  */
 
-int only_digits(char *num)
+bool only_digits(char *num)
 {
 	int c;
 
 	for (c = 0; num[c]; c++)
 		if (num[c] < '0' || num[c] > '9')
-			return (0);
-	return (1);
+			return (false);
+
+	return (true);
 }
 
 /**
@@ -124,9 +126,16 @@ int only_digits(char *num)
 int _strlen(char *str)
 {
 	int c;
+	bool only_zeros = true;
 
 	for (c = 0; str[c]; c++)
-		continue;
+		if (str[c] != '0' && only_zeros)
+			only_zeros = false;
+
+	/* If the string only contains zeros, then the leghth is 0 */
+	if (only_zeros)
+		return (0);
+
 	return (c);
 }
 
@@ -159,6 +168,7 @@ void _print(char *arr)
 	int c = 0;
 	char *start = arr;
 
+	/* Shift the counter to the first non-zero digit */
 	while (start[c] == '0')
 		c++;
 
