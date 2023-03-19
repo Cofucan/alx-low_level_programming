@@ -26,7 +26,7 @@ char **strtow(char *str)
 
 	if (!word_count) /* If there are only spaces */
 		return (NULL);
-	vec = malloc((sizeof(char *) * word_count) + 1);
+	vec = (char **)malloc(sizeof(char *) * (word_count + 1));
 
 	if (!vec)
 		return (NULL);
@@ -40,7 +40,7 @@ char **strtow(char *str)
 			c++;
 		}
 
-		vec[u] = malloc((sizeof(char) * word_len) + 1);
+		vec[u] = (char *)malloc(sizeof(char) * (word_len + 1));
 		if (!vec[u])
 		{
 			for (u--; u >= 0; u--)
