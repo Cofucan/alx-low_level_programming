@@ -5,7 +5,7 @@
 int count_words(char *str);
 
 /**
- * strtow - splits string into words
+ * strtow - splits string into words and store in a vector
  * @str: string to be split
  *
  * Return: Pointer to vector containing each word.
@@ -17,7 +17,7 @@ char **strtow(char *str)
 	int v = 0;
 	int c = 0;
 	int word_count;
-	int word_len;
+	int word_len = 1;
 	char **vec;
 
 	if (!str)
