@@ -3,7 +3,8 @@
 #include <stdlib.h>
 
 /**
- * free_dog- frees all memory allocated to a dog structure
+ * free_dog - frees all memory allocated to a dog structure
+ * @d: pointer to struct to be freed
  *
  * Return: Nothing.
  */
