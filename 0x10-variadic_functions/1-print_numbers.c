@@ -21,7 +21,9 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	for (x = 0; x < n; x++)
 	{
 		printf("%d", va_arg(ptr, int));
-		if (x != (n - 1)) /* If x is not the last index, print seperator */
+
+		/* If x is not the last index and separator is not null */
+		if (separator && (x != (n - 1)))
 			printf("%s", separator);
 	}
 	printf("\n");
