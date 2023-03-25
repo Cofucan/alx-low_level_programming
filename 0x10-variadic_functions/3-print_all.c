@@ -1,53 +1,73 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 /**
- * print_all - Prints all of the arguments when specified
- * @format: specifies the necessary operations
- * Return: void
+ * print_all - Prints all arguments passed into function
+ * @format: specifies the format of each argument passed
+ *
+ * Return: Nothing
  */
 
 void print_all(const char * const format, ...)
 {
-	int i;
-	int flag;
+	va_list args;
+	int c = 0;
+	int promoted_char;
+	double promoted_float;
 	char *str;
-	va_list a_list;
+	bool valid_type;
+	
+	va_start(args, format);
 
-	va_start(a_list, format);
-	i = 0;
-	while (format != NULL && format[i] != '\0')
+	while (*(format + c))
 	{
-		switch (format[i])
+		/* Assume that the current format specifier is valid */
+		valid_type = true;
+
+		/* Print the argument based on its format specifier */
+		switch (*(format + c))
 		{
 			case 'c':
-				printf("%c", va_arg(a_list, int));
-				flag = 0;
+				/* Promote the argument to an int, then cast it as a char */
+				promoted_char = (char)va_arg(args, int);
+				printf("%c", promoted_char);
 				break;
+
 			case 'i':
-				printf("%i", va_arg(a_list, int));
-				flag = 0;
+				printf("%d", va_arg(args, int));
 				break;
+
 			case 'f':
-				printf("%f", va_arg(a_list, double));
-				flag = 0;
+				/* Promote the argument to a double, then case it as a float */
+				promoted_float = (float)va_arg(args, double);
+				printf("%f", promoted_float);
 				break;
+
 			case 's':
-				str = va_arg(a_list, char*);
-				if (str == NULL)
-					str = "(nil)";
+				str = va_arg(args, char *);
+
+				/* If the string is null */
+				if (!str)
+				{
+					printf("(nil)");
+					break;
+				}
+
 				printf("%s", str);
-				flag = 0;
 				break;
+
+			/* If none of the cases are met, then the type is not valid */
 			default:
-				flag = 1;
-				break;
+				valid_type = false;
 		}
-		if (format[i + 1] != '\0' && flag == 0)
+		c++;
+
+		/* If the current specifier is valid and not the last in the list */
+		if (*(format + c) && valid_type)
 			printf(", ");
-		i++;
 	}
+
 	printf("\n");
-	va_end(a_list);
 }
