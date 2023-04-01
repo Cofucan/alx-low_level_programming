@@ -4,7 +4,8 @@ This repository contains my solutions to the tasks that I completed while studyi
 ---
 
 <p align="center">
-<a target="_blank" href="https://www.holbertonschool.com/"><img src="https://github.com/Cofucan/alx-low_level_programming/blob/main/holby.jpg?raw=true"></a>
+<a target="_blank" href="https://www.alxafrica.com/"><img src="https://github.com/Cofucan/alx-low_level_programming/blob/main/alx.jpg?raw=true" width="350"></a>
+<a target="_blank" href="https://www.holbertonschool.com/"><img src="https://github.com/Cofucan/alx-low_level_programming/blob/main/holby.jpg?raw=true" width="350"></a>
 </p>
 
 ---
