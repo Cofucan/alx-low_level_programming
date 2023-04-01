@@ -1,3 +1,6 @@
+# Specific files
+test.c
+
 # Prerequisites
 *.d
 
