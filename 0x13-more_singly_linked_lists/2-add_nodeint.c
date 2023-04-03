@@ -6,7 +6,7 @@
 /**
  * add_nodeint - adds a new node at the beginning of a singly-linked list
  * @head: Address of pointer to the first node
- * @n: Property to set for new node after declaration
+ * @n: Value to set member to after declaration
  *
  * Return: Address of the new node, or NULL
  */
