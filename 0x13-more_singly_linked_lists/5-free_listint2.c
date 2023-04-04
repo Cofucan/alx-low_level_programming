@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 /**
- * free_listint2 - frees a list of dynamically allocated structs
+ * free_listint2 -	frees a list of dynamically allocated structs
  *					and sets the head to null.
  * @head: Pointer to the first node
  *
