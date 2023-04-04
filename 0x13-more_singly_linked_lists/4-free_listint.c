@@ -12,17 +12,22 @@
 
 void free_listint(listint_t *head)
 {
-	listint_t *prev;
+	listint_t *curr = head;
+	listint_t *prev = head;
 
-	if (!(head->next))
+	/* If head points to null then there's nothing to free */
+	if (!head)
 		return;
 
-	prev = head;
-
-	while (head)
+	while (curr)
 	{
-		head = head->next;
+		/* Go to the next node */
+		curr = curr->next;
+
+		/* Free the previous node */
 		free(prev);
-		prev = head;
+
+		/* Current node should now become the previous node */
+		prev = curr;
 	}
 }
