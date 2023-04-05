@@ -17,7 +17,7 @@ void free_listint2(listint_t **head)
 	listint_t *curr;
 
 	/* If head points to null, then there's nothing to free */
-	if (!(*head))
+	if (!head || !(*head))
 		return;
 
 	prev = *head;
