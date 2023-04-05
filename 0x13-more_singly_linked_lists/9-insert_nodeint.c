@@ -45,6 +45,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		curr = curr->next;
 		x++;
 	}
+	
+	/* If we're at the last node, then don't add the new node */
+	if (!curr->next)
+		return (NULL);
 
 	/* New node should point to whatever was formerly at that index */
 	node_to_add->next = curr->next;
