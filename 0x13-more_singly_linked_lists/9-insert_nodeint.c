@@ -19,7 +19,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	unsigned int x = 0;
 
 	/* If list is empty */
-	if (!(*head))
+	if (!(*head) && idx)
 		return (NULL);
 
 	/* If index is 0, add the new node at the beginning of the list */
