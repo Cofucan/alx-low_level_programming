@@ -40,7 +40,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	/* Traverse the list until the last element before the index to be added */
 	while (x < (idx - 1))
 	{
-		if (!curr)
+		if (!curr->next)
 			return (NULL);
 		curr = curr->next;
 		x++;
