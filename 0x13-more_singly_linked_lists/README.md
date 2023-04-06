@@ -768,6 +768,20 @@ Write a function that reverses a listint_t linked list.
 
 **Solution:** [100-reverse_listint.c](https://github.com/Cofucan/alx-low_level_programming/blob/master/0x13-more_singly_linked_lists/100-reverse_listint.c)
 
+**Psuedocode:**
+
+ * Get a pointer to the previous node, which in the beginning will point to null
+ * Get a pointer to the current node, which in the beginning will point to the first node
+ * Get a pointer to the next node, which in the beginning will point to the second node
+ * Create a loop that runs as long as the current node is not null (head pointer is not null)
+ * -- Get the next node that comes after the current node
+ * -- Change the current node to point to the prevoius node
+ * -- Let the prevoius node pointer now point to the current node
+ * -- Let the current node pointer now point to the next node
+ * Loop breaks when the head pointer is null
+ * After the loop, the prevoius node pointer will be the new 'first node'
+ * Set the head pointer to point to the previous node which is now the beginning of the list
+
 ```
 $ amonkeyprogrammer@ubuntu:~/0x13. More singly linked lists$ cat 100-main.c 
 #include <stdlib.h>
