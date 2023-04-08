@@ -5,11 +5,10 @@ F2 = 2-get_bit.c
 F3 = 3-set_bit.c
 F4 = 4-clear_bit.c
 F5 = 5-flip_bits.c
-F6 = 
-F7 = 
+F6 = 100-get_endianness.c
 
 betty-all:
-	betty $(F0) $(F1) $(F2) $(F3) $(F4) $(F5) 
+	betty $(F0) $(F1) $(F2) $(F3) $(F4) $(F5) $(F6)
 
 task-0:
 	gcc $(CFLAGS) 0-main.c 0-binary_to_uint.c -o a -g
@@ -30,5 +29,5 @@ task-5:
 	gcc $(CFLAGS) 5-main.c 5-flip_bits.c -o f -g
 
 task-100:
-	gcc $(CFLAGS)
+	gcc $(CFLAGS) 100-main.c 100-get_endianness.c -o h
 
