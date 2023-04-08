@@ -12,7 +12,7 @@
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int mask, idx;
+	unsigned long int mask;
 	bool bit;
 
 	if (index >= (sizeof(unsigned long int) * 8))
