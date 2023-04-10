@@ -5,7 +5,7 @@ F2 = 2-append_text_to_file.c
 F3 = 3-cp.c
 
 betty-all:
-	betty $(F0) # $(F1) $(F2) $(F3) $(F4) $(F5) $(F6)
+	betty $(F0) $(F1) # $(F2) $(F3) $(F4)
 
 task-0:
 	gcc $(CFLAGS) 0-main.c 0-read_textfile.c -o a -g
