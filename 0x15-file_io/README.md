@@ -137,6 +137,17 @@ Create a function that creates a file.
 
 **Solution:** [1-create_file.c](https://github.com/Cofucan/alx-low_level_programming/blob/master/0x15-file_io/1-create_file.c)
 
+### Explanation
+
+1. This function takes two arguments: `filename` and `text_content`. `filename` is the name of the file to create, and `text_content` is a NULL-terminated string to write to the file. If `text_content` is `NULL`, an empty file is created.
+2. The function first checks if `filename` is `NULL`, and if it is, it immediately returns `-1` to indicate failure.
+3. If `filename` is not `NULL`, the function opens the file using the `open()` system call with the `O_WRONLY`, `O_CREAT`, and `O_TRUNC` flags. The `O_WRONLY` flag specifies that the file should be opened for writing only, `O_CREAT` specifies that the file should be created if it does not already exist, and `O_TRUNC` specifies that the file should be truncated if it already exists.
+4. The `0600` argument passed to `open()` specifies the file permissions for the newly created file. In this case, the file will have permissions of `rw-------` (i.e., read and write permissions for the owner, and no permissions for anyone else).
+5. If `open()` fails, it returns `-1`, and the function returns `-1` to indicate failure.
+6. If `open()` succeeds, the function checks if text_content is `NULL`. If it is not `NULL`, the function writes `text_content` to the file using the `write()` system call. The `strlen()` function is used to determine the length of `text_content`.
+7. If `write()` fails, it returns `-1`, and the function returns `-1` to indicate failure. If `write()` succeeds, the function checks if the number of bytes written is equal to the length of `text_content`. If they are not equal, this indicates an error, and the function returns `-1` to indicate failure.
+8. Finally, the function closes the file descriptor and returns `1` to indicate success.
+
 ```
 $ amonkeyprogrammer@ubuntu:~/0x15. File descriptors and permissions$ cat 1-main.c
 #include <stdio.h>
@@ -255,4 +266,3 @@ Why you should think twice before putting pictures on social media.
 http://imgur.com/a/Mq1tc
 $ amonkeyprogrammer@ubuntu:~/0x15. File descriptors and permissions$
 ```
-
