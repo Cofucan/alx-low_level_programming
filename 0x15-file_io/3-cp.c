@@ -18,7 +18,7 @@ int copy_file(char **arguments);
 int main(int argc, char **argv)
 {
 	char *usage = "Usage: %s file_from file_to\n";
-	char *file_not_exist = "Error: Can't read from the file %s\n";
+	char *file_not_exist = "Error: Can't read from file %s\n";
 
 	if (argc != 3)
 	{
@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 }
 
 /**
- * copy_file - appends text to the end of a file
+ * copy_file - copies contents of a file to another file
  * @arguments: Vector containing file to copy from and file to copy to
  *
  * Return: 0 if success
@@ -47,8 +47,8 @@ int main(int argc, char **argv)
 int copy_file(char **arguments)
 {
 	char buff[BUFF_SIZE];
-	char *cant_read = "Error: Can't read from the file %s\n";
-	char *cant_write = "Error: Can't write to the file %s\n";
+	char *cant_read = "Error: Can't read from file %s\n";
+	char *cant_write = "Error: Can't write to %s\n";
 	char *cant_close = "Error: Can't close fd %d\n";
 	char *file_from = arguments[1];
 	char *file_to = arguments[2];
@@ -65,7 +65,7 @@ int copy_file(char **arguments)
 	{
 		if (close(file_from_fd) == -1)
 		{
-			dprintf(STDERR_FILENO, cant_close, file_from);
+			dprintf(STDERR_FILENO, cant_close, file_from_fd);
 			exit(100);
 		}
 		dprintf(STDERR_FILENO, cant_write, file_to);
@@ -79,12 +79,12 @@ int copy_file(char **arguments)
 		{
 			if (close(file_from_fd) == -1)
 			{
-				dprintf(STDERR_FILENO, cant_close, file_from);
+				dprintf(STDERR_FILENO, cant_close, file_from_fd);
 				exit(100);
 			}
 			if (close(file_to_fd) == -1)
 			{
-				dprintf(STDERR_FILENO, cant_close, file_to);
+				dprintf(STDERR_FILENO, cant_close, file_to_fd);
 				exit(100);
 			}
 			dprintf(STDERR_FILENO, cant_read, file_from);
@@ -96,12 +96,12 @@ int copy_file(char **arguments)
 		{
 			if (close(file_from_fd) == -1)
 			{
-				dprintf(STDERR_FILENO, cant_close, file_from);
+				dprintf(STDERR_FILENO, cant_close, file_from_fd);
 				exit(100);
 			}
 			if (close(file_to_fd) == -1)
 			{
-				dprintf(STDERR_FILENO, cant_close, file_to);
+				dprintf(STDERR_FILENO, cant_close, file_to_fd);
 				exit(100);
 			}
 
@@ -112,12 +112,12 @@ int copy_file(char **arguments)
 
 	if (close(file_from_fd) == -1)
 	{
-		dprintf(STDERR_FILENO, cant_close, file_from);
+		dprintf(STDERR_FILENO, cant_close, file_from_fd);
 		exit(100);
 	}
 	else if (close(file_to_fd) == -1)
 	{
-		dprintf(STDERR_FILENO, cant_close, file_to);
+		dprintf(STDERR_FILENO, cant_close, file_to_fd);
 		exit(100);
 	}
 
