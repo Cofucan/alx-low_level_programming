@@ -141,7 +141,7 @@ void print_entry(const Elf64_Ehdr *elf_header)
  * Return: Always 0.
  */
 
-int main(int argc, char **argv)
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	const char *file_path;
 	int fd;
