@@ -78,22 +78,31 @@ void display_elf_header(const Elf64_Ehdr *elf_header)
 	int i;
 
 	printf("ELF Header:\n");
+
 	printf("  Magic:   ");
-	for (i = 0; i < EI_NIDENT; i++)
+	for (i = 0; i < (EI_NIDENT - 1); i++)
 		printf("%02x ", elf_header->e_ident[i]);
+	printf("%02x", elf_header->e_ident[i]);
 	printf("\n");
+
 	printf("  Class:                             %s\n",
 			elf_header->e_ident[EI_CLASS] == ELFCLASS32 ? "ELF32" : "ELF64");
+
 	printf("  Data:                              %s\n",
 			elf_header->e_ident[EI_DATA] == ELFDATA2LSB
 			? "2's complement, little endian"
 			: "2's complement, big endian");
+
 	printf("  Version:                           %d (current)\n",
 			elf_header->e_ident[EI_VERSION]);
+
 	print_osabi(elf_header);
+
 	printf("  ABI Version:                       %d\n",
 			elf_header->e_ident[EI_ABIVERSION]);
+
 	print_type(elf_header);
+
 	print_entry(elf_header);
 }
 
