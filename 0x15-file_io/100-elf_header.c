@@ -5,9 +5,11 @@
 #include <elf.h>
 #include "main.h"
 
-void print_entry(const Elf64_Ehdr *elf_header);
 void display_error(const char *error_message);
 void display_elf_header(const Elf64_Ehdr *elf_header);
+void print_osabi(const Elf64_Ehdr *elf_header);
+void print_type(const Elf64_Ehdr *elf_header);
+void print_entry(const Elf64_Ehdr *elf_header);
 
 /**
  * main - check the code
@@ -89,6 +91,20 @@ void display_elf_header(const Elf64_Ehdr *elf_header)
 			: "2's complement, big endian");
 	printf("  Version:                           %d (current)\n",
 			elf_header->e_ident[EI_VERSION]);
+	print_osabi(elf_header);
+	printf("  ABI Version:                       %d\n",
+			elf_header->e_ident[EI_ABIVERSION]);
+	print_type(elf_header);
+	print_entry(elf_header);
+}
+
+/**
+ * print_osabi - Prints the osabi indent of an ELF header.
+ * @elf_header: ...
+ */
+
+void print_osabi(const Elf64_Ehdr *elf_header)
+{
 	printf("  OS/ABI:                            ");
 	switch (elf_header->e_ident[EI_OSABI])
 	{
@@ -123,8 +139,15 @@ void display_elf_header(const Elf64_Ehdr *elf_header)
 			printf("<unknown: %x>\n", elf_header->e_ident[EI_OSABI]);
 			break;
 	}
-	printf("  ABI Version:                       %d\n",
-			elf_header->e_ident[EI_ABIVERSION]);
+}
+
+/**
+ * print_type - Prints the type of an ELF header.
+ * @elf_header: ...
+ */
+
+void print_type(const Elf64_Ehdr *elf_header)
+{
 	printf("  Type:                              ");
 	switch (elf_header->e_type)
 	{
@@ -147,7 +170,6 @@ void display_elf_header(const Elf64_Ehdr *elf_header)
 			printf("<unknown: %x>\n", elf_header->e_type);
 			break;
 	}
-	print_entry(elf_header);
 }
 
 /**
