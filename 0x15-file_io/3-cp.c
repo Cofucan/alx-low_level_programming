@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, usage, argv[0]);
+		dprintf(STDERR_FILENO, usage, "cp");
 		exit(97);
 	}
 
