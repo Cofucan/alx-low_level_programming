@@ -6,6 +6,8 @@
 #include "main.h"
 
 void print_entry(const Elf64_Ehdr *elf_header);
+void display_error(const char *error_message);
+void display_elf_header(const Elf64_Ehdr *elf_header);
 
 /**
  * display_error - ...
