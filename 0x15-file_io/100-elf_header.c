@@ -10,6 +10,46 @@ void display_error(const char *error_message);
 void display_elf_header(const Elf64_Ehdr *elf_header);
 
 /**
+ * main - check the code
+ * @argc: ...
+ * @argv: ...
+ *
+ * Return: Always 0.
+ */
+
+int main(int __attribute__((__unused__)) argc, char *argv[])
+{
+	const char *file_path;
+	int fd;
+	Elf64_Ehdr elf_header;
+
+	if (argc != 2)
+		display_error("Usage: elf_header elf_filename");
+
+	file_path = argv[1];
+
+	fd = open(file_path, O_RDONLY);
+	if (fd < 0)
+		display_error("Failed to open file");
+
+	if (read(fd, &elf_header, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
+		display_error("Failed to read ELF header");
+
+	/* Verify the file is an ELF file */
+	if (elf_header.e_ident[EI_MAG0] != ELFMAG0 ||
+		elf_header.e_ident[EI_MAG1] != ELFMAG1 ||
+		elf_header.e_ident[EI_MAG2] != ELFMAG2 ||
+		elf_header.e_ident[EI_MAG3] != ELFMAG3)
+	{
+		display_error("The file is not an ELF file");
+	}
+
+	display_elf_header(&elf_header);
+
+	close(fd);
+	return (0);
+}
+/**
  * display_error - ...
  * @error_message: ...
  *
@@ -132,45 +172,3 @@ void print_entry(const Elf64_Ehdr *elf_header)
 	else
 		printf("%#lx\n", ee);
 }
-
-/**
- * main - check the code
- * @argc: ...
- * @argv: ...
- *
- * Return: Always 0.
- */
-
-int main(int __attribute__((__unused__)) argc, char *argv[])
-{
-	const char *file_path;
-	int fd;
-	Elf64_Ehdr elf_header;
-
-	if (argc != 2)
-		display_error("Usage: elf_header elf_filename");
-
-	file_path = argv[1];
-
-	fd = open(file_path, O_RDONLY);
-	if (fd < 0)
-		display_error("Failed to open file");
-
-	if (read(fd, &elf_header, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
-		display_error("Failed to read ELF header");
-
-	/* Verify the file is an ELF file */
-	if (elf_header.e_ident[EI_MAG0] != ELFMAG0 ||
-		elf_header.e_ident[EI_MAG1] != ELFMAG1 ||
-		elf_header.e_ident[EI_MAG2] != ELFMAG2 ||
-		elf_header.e_ident[EI_MAG3] != ELFMAG3)
-	{
-		display_error("The file is not an ELF file");
-	}
-
-	display_elf_header(&elf_header);
-
-	close(fd);
-	return (0);
-}
-
