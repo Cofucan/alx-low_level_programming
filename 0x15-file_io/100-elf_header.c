@@ -61,7 +61,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 
 void display_error(const char *error_message)
 {
-	dprintf(STDERR_FILENO, "Error: %s\n", error_message);
+	fprintf(stderr, "Error: %s\n", error_message);
 	exit(98);
 }
 
