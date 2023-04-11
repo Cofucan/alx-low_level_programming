@@ -33,7 +33,10 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		display_error("Failed to open file");
 
 	if (read(fd, &elf_header, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
+	{
+		close(fd);
 		display_error("Failed to read ELF header");
+	}
 
 	/* Verify the file is an ELF file */
 	if (elf_header.e_ident[EI_MAG0] != ELFMAG0 ||
@@ -58,7 +61,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 
 void display_error(const char *error_message)
 {
-	fprintf(stderr, "Error: %s\n", error_message);
+	dprintf(STDERR_FILENO, "Error: %s\n", error_message);
 	exit(98);
 }
 
