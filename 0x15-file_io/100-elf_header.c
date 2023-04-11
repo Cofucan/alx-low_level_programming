@@ -3,7 +3,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <elf.h>
-#include "main.h"
 
 void display_error(const char *error_message);
 void display_elf_header(const Elf64_Ehdr *elf_header);
@@ -118,7 +117,7 @@ void print_osabi(const Elf64_Ehdr *elf_header)
 			printf("UNIX - NetBSD\n");
 			break;
 		case ELFOSABI_LINUX:
-			printf("UNIX - GNU\n");
+			printf("UNIX - Linux\n");
 			break;
 		case ELFOSABI_SOLARIS:
 			printf("UNIX - Solaris\n");
@@ -134,6 +133,12 @@ void print_osabi(const Elf64_Ehdr *elf_header)
 			break;
 		case ELFOSABI_ARM_AEABI:
 			printf("ARM EABI\n");
+			break;
+		case ELFOSABI_ARM:
+			printf("ARM\n");
+			break;
+		case ELFOSABI_STANDALONE:
+			printf("Standalone App\n");
 			break;
 		default:
 			printf("<unknown: %x>\n", elf_header->e_ident[EI_OSABI]);
