@@ -1,5 +1,6 @@
 # Specific files
 test.c
+test.py
 
 # Prerequisites
 *.d
