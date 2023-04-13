@@ -314,3 +314,28 @@ NUMA node(s):          1
 Vendor ID:             GenuineIntel
 julien@ubuntu:~/0x14. Binary$
 ```
+
+# Crackme3
+
+Find the password for [this program](https://github.com/holbertonschool/0x13.c).
+
+* Save the password in the file `101-password`
+* Your file should contain the exact password, no new line, no extra space
+* ltrace, ldd, gdb and objdump can help
+* You may need to install the openssl library to run the crakme2 program: sudo apt install libssl-dev
+* Edit the source list `sudo nano /etc/apt/sources.list` to add the following line: `deb http://security.ubuntu.com/ubuntu xenial-security main` Then `sudo apt update` and `sudo apt install libssl1.0.0`
+
+**Solution:** [101-password](https://github.com/Cofucan/alx-low_level_programming/blob/master/0x14-bit_manipulation/101-password)
+
+## My Process
+
+* Install all necessary packages that may be needed, including gdb, objdump and libssl
+* Run the crackme3 program with gdb `gdb crackme3`
+* Go to the next layout to see the assembly instructions `layout next`
+* Set a breakpoint at the beginning of the main function
+
+```
+julien@ubuntu:~/0x14. Binary$ ./crackme3 `cat 101-password`
+Congratulations!
+julien@ubuntu:~/0x14. Binary$
+```
