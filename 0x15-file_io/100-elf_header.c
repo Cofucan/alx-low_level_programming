@@ -162,8 +162,13 @@ void print_osabi(const Elf64_Ehdr *elf_header)
 
 void print_type(const Elf64_Ehdr *elf_header)
 {
+	unsigned int e_type = elf_header->e_type;
+
+	if (elf_header->e_ident[EI_DATA] == ELFDATA2MSB)
+		e_type >>= 8;
+
 	printf("  Type:                              ");
-	switch (elf_header->e_type)
+	switch (e_type)
 	{
 		case ET_NONE:
 			printf("NONE (No file type)\n");
@@ -181,7 +186,7 @@ void print_type(const Elf64_Ehdr *elf_header)
 			printf("CORE (Core file)\n");
 			break;
 		default:
-			printf("<unknown: %x>\n", elf_header->e_type);
+			printf("<unknown: %x>\n", e_type);
 			break;
 	}
 }
