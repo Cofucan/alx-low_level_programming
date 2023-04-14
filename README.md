@@ -20,7 +20,7 @@ This repository contains my solutions to the tasks that I completed while studyi
 
 ## Technologies Used
 
-During a large majority of the timeline, I worked in my personal Ubuntu local environment (not the sandbox that was provided). Some of the tools I used include:
+After a week of using the sandbox (my first week of ALX), I started doing all my work in my personal Ubuntu local environment (not the sandbox that was provided). Some of the tools I used include:
 
 - [Oh-My-ZSH](https://ohmyz.sh/): A Unix shell, similar to Bash.
 - [Valgrind](https://valgrind.org/): A programming tool for memory debugging, leak detection and profiling.
@@ -29,7 +29,7 @@ During a large majority of the timeline, I worked in my personal Ubuntu local en
 - [Betty](https://github.com/holbertonschool/Betty): Holberton-style C code checker written in Perl.
 - [GDB](https://www.sourceware.org/gdb/): Command-line debugger that works with many low level languages including C/C++.
 - [Neovim](https://neovim.io/): An upgraded version of the VIM code editor.
-- [WSL](https://learn.microsoft.com/en-us/windows/wsl/install): Virtualization technology by Microsoft, that enables working with Linux in Windows.
+- [WSL](https://learn.microsoft.com/en-us/windows/wsl/install): Windows OS feature, by Microsoft, that enables Linux to be run natively on Windows.
 
 ## Projects
 
@@ -38,26 +38,29 @@ Here is the complete list of projects in this repository, each project has its d
 - [0x00. C - Hello, World](./0x00-hello_world)
 - [0x01. C - Variables, if, else, while](./0x01-variables_if_else_while)
 - [0x02. C - Functions, nested loops](./0x02-functions_nested_loops)
-- [0x03. C - More functions, more nested loops](./0x03-more_functions_nested_loops)
-- [0x04. C - Pointers, arrays and strings](./0x04-pointers_arrays_strings)
-- [0x05. C - More pointers, arrays and strings](./0x05-pointers_arrays_strings)
-- [0x06. C - Even more pointers, arrays and strings](./0x06-pointers_arrays_strings)
-- [0x07. C - Recursion](./0x07-recursion)
-- [0x08. C - Static libraries](./0x08-static_libraries)
-- [0x09. C - argc, argv](./0x09-argc_argv)
-- [0x0A. C - malloc, free](./0x0A-malloc_free)
-- [0x0B. C - More malloc, free](./0x0B-more_malloc_free)
-- [0x0C. C - Preprocessor](./0x0C-preprocessor)
-- [0x0D. C - Structures, typedef](./0x0D-structures_typedef)
-- [0x0E. C - Function pointers](./0x0E-function_pointers)
-- [0x0F. C - Variadic functions](./0x0F-variadic_functions)
-- [0x10. C - printf](https://github.com/Cofucan/printf/tree/main)
-- [0x11. C - Singly linked lists](./0x11-singly_linked_lists)
-- [0x12. C - More singly linked lists](./0x12-more_singly_linked_lists)
+- [0x03. C - Debugging](./0x03-debugging)
+- [0x04. C - More functions, more nested loops](./0x04-more_functions_nested_loops)
+- [0x05. C - Pointers, arrays and strings](./0x05-pointers_arrays_strings)
+- [0x06. C - More pointers, arrays and strings](./0x06-pointers_arrays_strings)
+- [0x07. C - Even more pointers, arrays and strings](./0x07-pointers_arrays_strings)
+- [0x08. C - Recursion](./0x08-recursion)
+- [0x09. C - Static libraries](./0x09-static_libraries)
+- [0x0A. C - argc, argv](./0x0A-argc_argv)
+- [0x0B. C - malloc, free](./0x0B-malloc_free)
+- [0x0C. C - More malloc, free](./0x0C-more_malloc_free)
+- [0x0D. C - Preprocessor](./0x0D-preprocessor)
+- [0x0E. C - Structures, typedef](./0x0E-structures_typedef)
+- [0x0F. C - Function pointers](./0x0F-function_pointers)
+- [0x10. C - Variadic functions](./0x10-variadic_functions)
+- [0x11. C - printf](https://github.com/Cofucan/printf/tree/main)
+- [0x12. C - Singly linked lists](./0x12-singly_linked_lists)
+- [0x13. C - More singly linked lists](./0x13-more_singly_linked_lists)
+- [0x14. C - Bit manipulation](./0x14-bit_manipulation)
+- [0x15. C - File I/O](./0x15-file_io)
 
 ## Usage
 
-Each project and task contains the instructions to compile the code and execute the results.
+Each project and task contains the instructions to compile the code and execute the results. Some of the projects contain shell scripts and Makefiles to quickly run commands.
 
 ## Inspiration
 
