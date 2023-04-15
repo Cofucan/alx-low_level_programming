@@ -30,3 +30,6 @@ main:
 ; 6. We restore the stack pointer and base pointer to their original values.
 ; 7. We set the eax register to 0 as required by the System V ABI.
 ; 8. We return to the caller using ret.
+
+; To compile, use:
+;	nasm -f elf64 101-hello_holberton.asm && gcc -no-pie -std=gnu89 101-hello_holberton.o -o hello
