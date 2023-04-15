@@ -55,6 +55,13 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	return (0);
 }
 
+/**
+ * display_elf_header - ...
+ * @elf_header: ...
+ *
+ * Return: ...
+ */
+
 void display_elf_header(const Elf64_Ehdr *elf_header)
 {
 	int i;
@@ -100,14 +107,7 @@ void display_error(const char *error_message)
 }
 
 /**
- * display_elf_header - ...
- * @elf_header: ...
- *
- * Return: ...
- */
-
-/**
- * print_osabi - Prints the osabi indent of an ELF header.
+ * print_version - Prints the version of an ELF header.
  * @elf_header: ...
  */
 
