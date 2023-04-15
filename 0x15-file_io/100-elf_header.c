@@ -4,8 +4,9 @@
 #include <unistd.h>
 #include <elf.h>
 
-void display_error(const char *error_message);
 void display_elf_header(const Elf64_Ehdr *elf_header);
+void display_error(const char *error_message);
+void print_version(const Elf64_Ehdr *elf_header);
 void print_osabi(const Elf64_Ehdr *elf_header);
 void print_type(const Elf64_Ehdr *elf_header);
 void print_entry(const Elf64_Ehdr *elf_header);
@@ -53,25 +54,6 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	close(fd);
 	return (0);
 }
-/**
- * display_error - ...
- * @error_message: ...
- *
- * Return: ...
- */
-
-void display_error(const char *error_message)
-{
-	fprintf(stderr, "Error: %s\n", error_message);
-	exit(98);
-}
-
-/**
- * display_elf_header - ...
- * @elf_header: ...
- *
- * Return: ...
- */
 
 void display_elf_header(const Elf64_Ehdr *elf_header)
 {
@@ -93,9 +75,7 @@ void display_elf_header(const Elf64_Ehdr *elf_header)
 			? "2's complement, little endian"
 			: "2's complement, big endian");
 
-	printf("  Version:                           %d (current)\n",
-			elf_header->e_ident[EI_VERSION]);
-
+	print_version(elf_header);
 	print_osabi(elf_header);
 
 	printf("  ABI Version:                       %d\n",
@@ -104,6 +84,42 @@ void display_elf_header(const Elf64_Ehdr *elf_header)
 	print_type(elf_header);
 
 	print_entry(elf_header);
+}
+
+/**
+ * display_error - ...
+ * @error_message: ...
+ *
+ * Return: ...
+ */
+
+void display_error(const char *error_message)
+{
+	fprintf(stderr, "Error: %s\n", error_message);
+	exit(98);
+}
+
+/**
+ * display_elf_header - ...
+ * @elf_header: ...
+ *
+ * Return: ...
+ */
+
+/**
+ * print_osabi - Prints the osabi indent of an ELF header.
+ * @elf_header: ...
+ */
+
+void print_version(const Elf64_Ehdr *elf_header)
+{
+	printf("  Version:                           %d",
+			elf_header->e_ident[EI_VERSION]);
+
+	if (elf_header->e_ident[EI_VERSION] == EV_CURRENT)
+		printf(" (current)\n");
+	else
+		printf("\n");
 }
 
 /**
