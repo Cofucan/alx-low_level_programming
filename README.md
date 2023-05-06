@@ -29,6 +29,7 @@ After a week of using the sandbox (my first week of ALX), I started doing all my
 - [Betty](https://github.com/holbertonschool/Betty): Holberton-style C code checker written in Perl.
 - [GDB](https://www.sourceware.org/gdb/): Command-line debugger that works with many low level languages including C/C++.
 - [Neovim](https://neovim.io/): An upgraded version of the VIM code editor.
+- [Lunarvim](https://www.lunarvim.org/): An IDE layer for Neovim with sane defaults. Completely free and community driven.
 - [WSL](https://learn.microsoft.com/en-us/windows/wsl/install): Windows OS feature, by Microsoft, that enables Linux to be run natively on Windows.
 
 ## Projects
@@ -57,10 +58,19 @@ Here is the complete list of projects in this repository, each project has its d
 - [0x13. C - More singly linked lists](./0x13-more_singly_linked_lists)
 - [0x14. C - Bit manipulation](./0x14-bit_manipulation)
 - [0x15. C - File I/O](./0x15-file_io)
+- [0x16. C - Simple Shell](https://github.com/Cofucan/simple_shell)
 
 ## Usage
 
 Each project and task contains the instructions to compile the code and execute the results. Some of the projects contain shell scripts and Makefiles to quickly run commands.
+
+## Work In Porgress
+
+These functions are still being worked on, to handle more edge cases.
+
+- [infinite_add](./0x06-pointers_arrays_strings/103-infinite_add.c)
+- [strtow](./0x0B-malloc_free/101-strtow.c)
+- [print_all](./0x10-variadic_functions/3-print_all.c)
 
 ## Inspiration
 
