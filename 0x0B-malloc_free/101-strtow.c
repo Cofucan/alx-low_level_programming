@@ -18,21 +18,23 @@ char **strtow(char *str)
 	int c = 0;
 	int word_count;
 	int word_len = 1;
-	char **vec;
+	char **vec; /* Vector to store the words */
 
-	if (!str)
+	if (!str) /* If string is null or empty */
 		return (NULL);
+
 	word_count = count_words(str);
 
 	if (!word_count) /* If there are only spaces */
 		return (NULL);
-	vec = (char **)malloc(sizeof(char *) * (word_count + 1));
 
+	vec = (char **)malloc(sizeof(char *) * (word_count + 1));
 	if (!vec)
 		return (NULL);
 
 	for (u = 0, c = 0; u < word_count; c++, u++, word_len = 1)
 	{
+		/* Iterate until we encounter a char proceeded by a space */
 		while (!(str[c] != ' ' && str[c + 1] <= ' '))
 		{
 			if (str[c] != ' ')
