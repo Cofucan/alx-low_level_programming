@@ -11,70 +11,72 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int carry = 0, i = 0, j = 0, digits = 0;
-	int num1 = 0, num2 = 0, temp_sum = 0;
+	int n1_len = arr_len(n1);
+	int n2_len = arr_len(n2);
+	int longest; /* Length of the longest string of numbers */
+	int sum, remainder;
+	int carry = 0;
+	int c; /* Counter for each digit added from the largest number */
+	int d; /* Counter for each digit added to the buffer */
+	int e; /* Counter for copying the reversed sum digits to the r buffer */
+	char temp; /* Temporary variable to store number while reversing array */
 
-	while (*(n1 + i) != '\0')
-		i++;
-	while (*(n2 + j) != '\0')
-		j++;
-	i--;
-	j--;
-	if (j >= size_r || i >= size_r)
-		return (0);
-	while (j >= 0 || i >= 0 || carry == 1)
+	/* Find the longest of the two arrays */
+	if (n1_len > n2_len)
+		longest = n1_len;
+	else if (n2_len > n1_len)
+		longest = n2_len;
+	else
+		longest = n1_len;
+
+	for (c = longest - 1, d = 0; c >= 0; c--, d++, n1_len--, n2_len--)
 	{
-		if (i < 0)
-			num1 = 0;
+		if (n1_len <= 0)
+			sum = *(n2 + n2_len - 1) - '0';
+		else if (n2_len <= 0)
+			sum = *(n1 + n1_len - 1) - '0';
 		else
-			num1 = *(n1 + i) - '0';
-		if (j < 0)
-			num2 = 0;
-		else
-			num2 = *(n2 + j) - '0';
-		temp_sum = num1 + num2 + carry;
-		if (temp_sum >= 10)
-			carry = 1;
-		else
-			carry = 0;
+			sum = (*(n2 + n2_len - 1) - '0') + (*(n1 + n1_len - 1) - '0');
 
-		if (digits >= (size_r - 1))
-			return (0);
-		*(r + digits) = (temp_sum % 10) + '0';
-		digits++;
-		j--;
-		i--;
+		sum += carry;
+		carry = 0;
+
+		if (sum >= 10)
+		{
+			remainder = sum - 10;
+			carry = 1;
+		}
+		else
+			remainder = sum;
+
+		*(r + d) = remainder + '0';
 	}
-	if (digits == size_r)
+
+	if (longest + carry >= size_r)
 		return (0);
-	*(r + digits) = '\0';
-	rev_array(r);
+
+	/* If there is a carry at the end of the sum, add 1 to the buffer */
+	if (carry)
+		r[d] = '1';
+
+	/* Reverse the numbers in the buffer */
+	for (e = 0; e < (longest / 2); e++)
+	{
+		temp = *(r + longest - e);
+		*(r + longest - e) = *(r + e);
+		*(r + e) = temp;
+	}
+
+	/* *(r + e) = '\0'; */
 	return (r);
 }
 
-
-/**
- * rev_array - reverse array
- * @n: integer params
- * Return: 0
- */
-
-void rev_array(char *n)
+int arr_len(char *str)
 {
-	int i = 0;
-	int j = 0;
-	char temp;
+	int c = 0;
 
-	while (*(n + i) != '\0')
-	{
-		i++;
-	}
-	i--;
+	while (str[c] != '\0')
+		c++;
 
-	for (j = 0; j < i; j++, i--)
-	{
-		temp = *(n + j);
-		*(n + j) = *(n + i);
-		*(n + i) = temp;
-	}
+	return (c);
 }
