@@ -18,7 +18,7 @@ void print_all(const char * const format, ...)
 	double promoted_float;
 	char *str;
 	bool valid_type;
-	
+
 	va_start(args, format);
 
 	while (*(format + c))
@@ -70,4 +70,6 @@ void print_all(const char * const format, ...)
 	}
 
 	printf("\n");
+
+	va_end(args);
 }
