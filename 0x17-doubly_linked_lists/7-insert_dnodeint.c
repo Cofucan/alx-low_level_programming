@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdlib.h>
 
 /**
  * insert_dnodeint_at_index - inserts a node at a given index of a list
@@ -14,35 +13,46 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *curr = *h;
 	dlistint_t *new_node;
-	unsigned int index;
+	unsigned int index = 0;
 
-	new_node = malloc(sizeof(dlistint_t));
-	if (!new_node)
+	if (!h) /* Check if list is empty */
 		return (NULL);
 
 	if (idx == 0)
-	{
-		add_dnodeint(h, n);
+	{ /* Add node at the beginning if index is 0 */
+		new_node = add_dnodeint(h, n);
 		return (new_node);
 	}
 
-	for (index = 0; curr->next; index++)
+	new_node = malloc(sizeof(dlistint_t));
+	if (!new_node)
+		return NULL;
+
+	new_node->n = n;
+
+	while (curr)
 	{
 		if (index == idx)
-		{
-			new_node->n = n;
+		{ /* Find the node that is currently at the specified index */
 			new_node->next = curr;
-			new_node->prev  = curr->prev;
-			curr->prev->next = new_node;
+			new_node->prev = curr->prev;
+
+			if (curr->prev)
+				curr->prev->next = new_node;
+			else /* If the current node is the first node */
+				*h = new_node; /* Update the head of the list */
+
 			curr->prev = new_node;
 			return (new_node);
 		}
+
 		curr = curr->next;
+		index++;
 	}
 
 	if (index == idx)
-	{
-		add_dnodeint_end(h, n);
+	{ /* Add node at end if index is the last index of the list */
+		new_node = add_dnodeint_end(h, n);
 		return (new_node);
 	}
 
