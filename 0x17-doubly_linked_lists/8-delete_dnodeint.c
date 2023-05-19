@@ -30,20 +30,14 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		if (idx == index)
 		{ /* Find the node that is currently at the index */
 			curr->prev->next = curr->next;
-			curr->next->prev = curr->prev;
+			if (curr->next)
+				curr->next->prev = curr->prev;
 			free(curr);
 			return (1);
 		}
 
 		curr = curr->next;
 		idx++;
-	}
-
-	if (idx == index)
-	{ /* Delete last node if index is the last index of the list */
-		curr->prev->next = NULL;
-		free(curr);
-		return (1);
 	}
 
 	return (-1);
