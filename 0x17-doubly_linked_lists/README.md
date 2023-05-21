@@ -277,7 +277,7 @@ $ amonkeyprogrammer@ubuntu:~/0x17. Doubly linked lists$ valgrind ./e
 $ amonkeyprogrammer@ubuntu:~/0x17. Doubly linked lists$
 ```
 
-### **Get node at index**(https://github.com/Cofucan/alx-low_level_programming/blob/main/0x17-doubly_linked_lists/102-result)
+### **Get node at index**
 
 Write a function that returns the nth node of a `dlistint_t` linked list.
 
