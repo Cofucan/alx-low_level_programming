@@ -22,6 +22,10 @@ int main(void)
     hash_table_set(ht, "Betty", "Cool");
     hash_table_set(ht, "98", "Battery Street");
     hash_table_set(ht, "c", "isfun");
+    hash_table_set(ht, "hetairas", "value_1");
+    hash_table_set(ht, "mentioner", "value_2");
+    hash_table_set(ht, "heliotropes", "value_3");
+    hash_table_set(ht, "neurospora", "value_4");
 
     value = hash_table_get(ht, "python");
     printf("%s:%s\n", "python", value);
@@ -39,5 +43,22 @@ int main(void)
     printf("%s:%s\n", "c", value);
     value = hash_table_get(ht, "javascript");
     printf("%s:%s\n", "javascript", value);
+
+    value = hash_table_get(ht, "hetairas");
+    printf("%s:%s\n", "hetairas", value);
+    value = hash_table_get(ht, "mentioner");
+    printf("%s:%s\n", "mentioner", value);
+    value = hash_table_get(ht, "heliotropes");
+    printf("%s:%s\n", "heliotropes", value);
+    value = hash_table_get(ht, "neurospora");
+    printf("%s:%s\n", "neurospora", value);
+
+    hash_table_set(ht, "hetairas", "value_updated");
+    value = hash_table_get(ht, "hetairas");
+    printf("%s:%s\n", "hetairas", value);
+    hash_table_set(ht, "neurospora", "also_updated");
+    value = hash_table_get(ht, "neurospora");
+    printf("%s:%s\n", "neurospora", value);
+
     return (EXIT_SUCCESS);
 }

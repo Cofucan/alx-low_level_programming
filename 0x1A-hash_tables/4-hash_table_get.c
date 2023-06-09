@@ -16,6 +16,9 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	hash_node_t *ht_slot;
 	char *update_value;
 
+	if (!ht || !key || !(*key))
+		return (NULL);
+
 	/* Get the key index and the node at that index */
 	index = key_index((unsigned char *)key, ht->size);
 	ht_pair = ht->array[index];
