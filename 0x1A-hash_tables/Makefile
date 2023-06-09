@@ -19,27 +19,27 @@ t0:
 	valgrind ./a
 
 t1:
-	gcc 1-main.c $(F1) -o b -g
+	gcc $(CFLAGS) 1-main.c $(F1) -o b -g
 	./b
 
 t2:
-	gcc 2-main.c $(F1) $(F2) -o c -g
+	gcc $(CFLAGS) 2-main.c $(F1) $(F2) -o c -g
 	./c
 
 t3:
-	gcc 3-main.c $(F0) $(F1) $(F2) $(F3) -o d -g
+	gcc $(CFLAGS) 3-main.c $(F0) $(F1) $(F2) $(F3) -o d -g
 	./d
 
 t4:
-	gcc 4-main.c $(F0) $(F1) $(F2) $(F3) $(F4) -o e -g
+	gcc $(CFLAGS) 4-main.c $(F0) $(F1) $(F2) $(F3) $(F4) -o e -g
 	./e
 
 t5:
-	gcc 4-main.c $(F0) $(F1) $(F2) $(F3) $(F4) $(F5) -o f -g
+	gcc $(CFLAGS) 4-main.c $(F0) $(F1) $(F2) $(F3) $(F4) $(F5) -o f -g
 	./f
 
 t6:
-	gcc 6-main.c $(F0) $(F1) $(F2) $(F3) $(F4) $(F5) $(F6) -o g -g
+	gcc $(CFLAGS) 6-main.c $(F0) $(F1) $(F2) $(F3) $(F4) $(F5) $(F6) -o g -g
 
 	./g
 
