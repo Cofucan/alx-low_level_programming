@@ -11,9 +11,13 @@ betty-all:
 	betty hash_tables.h $(F0) $(F1) $(F2) $(F3) $(F4) $(F5) $(F6)
 
 clean:
-	rm a
+	rm a b c d e
 
 t0:
 	gcc 0-main.c $(F0) -o a
 	./a
 	valgrind ./a
+
+t1:
+	gcc 1-main.c $(F1) -o b
+	./b
