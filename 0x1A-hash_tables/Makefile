@@ -35,7 +35,7 @@ t4:
 	./e
 
 t5:
-	gcc $(CFLAGS) 4-main.c $(F0) $(F1) $(F2) $(F3) $(F4) $(F5) -o f -g
+	gcc $(CFLAGS) 5-main.c $(F0) $(F1) $(F2) $(F3) $(F4) $(F5) -o f -g
 	./f
 
 t6:
