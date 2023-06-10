@@ -40,6 +40,5 @@ t5:
 
 t6:
 	gcc $(CFLAGS) 6-main.c $(F0) $(F1) $(F2) $(F3) $(F4) $(F5) $(F6) -o g -g
-
-	./g
+	valgrind ./g
 
