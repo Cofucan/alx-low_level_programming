@@ -4,11 +4,10 @@
 void print_bucket(hash_node_t *ht_bucket, char *format);
 
 /**
- * hash_table_get - Gets the value associated with a key from the hash table.
- * @ht: The hash table to find the key in.
- * @key: The key to be found on the hash table.
+ * hash_table_print - Prints a hash table.
+ * @ht: The hash table to be printed.
  *
- * Return: The value associated with the key, or NULL if key was not found.
+ * Return: Nothing.
  */
 void hash_table_print(const hash_table_t *ht)
 {
@@ -37,6 +36,13 @@ void hash_table_print(const hash_table_t *ht)
 	printf("}\n");
 }
 
+/**
+ * print_bucket - Prints a hash table bucket (linked-list).
+ * @ht_bucket: The linked-list to be printed.
+ * @format: The format with which to print the elements.
+ *
+ * Return: Nothing.
+ */
 void print_bucket(hash_node_t *ht_bucket, char *format)
 {
 	while (ht_bucket)
