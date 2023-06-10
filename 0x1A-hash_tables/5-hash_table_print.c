@@ -1,5 +1,4 @@
 #include "hash_tables.h"
-#include <stdio.h>
 
 void print_bucket(hash_node_t *ht_bucket, char *format);
 
