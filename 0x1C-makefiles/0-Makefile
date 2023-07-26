@@ -1,4 +1,5 @@
 .PHONY: all
+
 all: school
 
 school: main.c school.c
